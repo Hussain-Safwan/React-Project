@@ -419,3 +419,15 @@ i{
     justify-content: center;
   }
 }
+
+/* +++++ My Custom ++++++ */
+.hilight-back{
+  display: inline-block;
+  border-radius: 15px 15px 15px 15px;
+  background-color: rgb(231, 231, 231);
+  padding: 10px;
+}
+
+.round-btn{
+  border-radius: 10px 10px 10px 10px;
+}

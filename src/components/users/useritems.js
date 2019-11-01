@@ -1,18 +1,18 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-const useritems = ({users : {login, avaterUrl, htmlUrl}}) => {
-    // const {login, avaterUrl, htmlUrl} = props.users;
+const useritems = ({users : {login, avatar_url, html_url}}) => {
     return (
       <div className="card text-center">
         <img 
-          src={avaterUrl}
+          src={avatar_url}
           className="round-img"
           alt=""
           style={{width: '60px', height: '60px'}}
           />
         <h3> {login} </h3>
         <div>
-          <a href={htmlUrl} className="btn btn-dark btn-sm my-1">View Profile</a>
+          <Link to={`/user/${login}`} className="btn btn-dark btn-sm my-1">View Profile</Link>
         </div>
       </div>
     )
