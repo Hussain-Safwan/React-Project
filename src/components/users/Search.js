@@ -1,45 +1,35 @@
-import React, { Component } from 'react'
+import React, {useState} from 'react'
 
-export class Search extends Component {
-  state = {
-    text: ''
-  }
+const Search = ({ searchUsers, showAlert, showClear, clearUsers }) => {
+  const [text, setText] = useState('');
 
-  // static propTypes = {
-  //   searchUsers : PropTypes.func.isRequired,
-  //   clearUsers : PropTypes.func.isRequired,
-  //   showClear : PropTypes.bool.isRequired
-  // }
-
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+  const onChange = (e) => {
+    setText(e.target.value)
   };
 
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    if (this.state.text === ''){
-      this.props.showAlert('Enter the name of the user', 'light');
+    if (text === '') {
+      showAlert('Enter the name of the user', 'light');
     }
     else {
-      this.props.searchUsers(this.state.text);
-      this.setState({ text: '' })
+      searchUsers(text);
+      setText('')
     }
   };
 
-  render() {
-    return (
-      <div>
-        {/* 'this' bound since we're not using arrow function */}
-        <form onSubmit={this.onSubmit.bind(this)} className="form">
-          <input type="text" className="text" value={this.state.text} onChange={this.onChange} name="text" placeholder="Search users ..." />
-          <input type="submit" className="btn btn-dark btn-block" value="Search" />
-        </form>
+  return (
+    <div>
+      {/* 'this' bound since we're not using arrow function */}
+      <form onSubmit={onSubmit} className="form">
+        <input type="text" className="text" value={text} onChange={onChange} name="text" placeholder="Search users ..." />
+        <input type="submit" className="btn btn-dark btn-block" value="Search" />
+      </form>
 
-        {this.props.showClear && <button className="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button>}
+      {showClear && <button className="btn btn-light btn-block" onClick={clearUsers}>Clear</button>}
 
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Search

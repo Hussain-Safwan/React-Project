@@ -7,6 +7,9 @@ const RepoItems = ({ repo }) => {
       <h3>
         <a href={repo.html_url}> {repo.name} </a>
       </h3>
+      <p className="date"> {repo.created_at} </p>
+      <br/>
+      <p> {repo.description} </p>
     </div>
   )
 }

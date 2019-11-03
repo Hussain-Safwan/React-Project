@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('carttps://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
 
 /* Global Styles */
@@ -430,4 +430,9 @@ i{
 
 .round-btn{
   border-radius: 10px 10px 10px 10px;
+}
+
+.date{
+  font-size: 10px;
+  color: gray;
 }
